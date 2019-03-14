@@ -1,0 +1,21 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  height: 100vh;
+  .nav-wrapper {
+    background-color: #757575;
+  }
+
+  .body-contents {
+    height: 85%;
+    width: 100%;
+
+    .body-contents__wrapper {
+      height: 100%;
+      width:  100%;
+      padding: 180px;
+      overflow: scroll;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+%nav
+  .nav-wrapper
+    %a.brand-logo.center{:href => "#"} Blog
+    %ul#nav-mobile.left
+      - if user_signed_in?
+        %li
+          = link_to "SignOut", destroy_user_session_path, method: :delete
+        %li
+          = link_to "New", new_blog_path
+      - else
+        %li
+          = link_to "SignUp", new_user_registration_path, method: :get
+        %li
+          = link_to "SignIn", new_user_session_path, method: :get
+
+.body-contents
+  %ul.body-contents__wrapper
+    - @blogs.each do |blog|
+      %li.body-contents__list
+        = render partial: "blogs/show", locals: { blog: blog }
+
+.footer
+  .footer-wrapper
+    = paginate @blogs

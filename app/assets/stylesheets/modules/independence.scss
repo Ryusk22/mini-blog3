@@ -1,0 +1,47 @@
+nav {
+  position: fixed;
+  z-index: 11;
+}
+
+.new-content {
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+  form {
+    padding-top: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
+    .input-field {
+      padding: 30px;
+    }
+  }
+}
+
+.show-content {
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+
+  #show-content__card{
+    height: 70vh;
+  }
+}
+
+.card-title {
+  padding-bottom: 25px;
+  font-style: italic;
+}
+
+.card-contents {
+  max-height: 35px;
+  overflow: scroll;
+}
+
+.footer {
+  height: 100px;
+  width: 100%;
+  .footer-wrapper {
+    padding: 10px;
+    text-align: center;
+  }
+}

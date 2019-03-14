@@ -1,0 +1,14 @@
+.new-content__form
+  = form_for(blog) do |f|
+    .field
+      .field-label
+        = f.label :title
+      .field-input
+        = f.text_area :title, autofocus: true
+    .field
+      .field-label
+        = f.label :content
+      .field-input
+        = f.text_field :content
+    .actions
+      = f.submit "送信", class: 'btn'

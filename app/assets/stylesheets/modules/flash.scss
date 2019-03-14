@@ -1,0 +1,20 @@
+.notification {
+  position: fixed;
+  z-index: 12;
+  width: 100%;
+  top: 67px;
+
+  .notice {
+    @extend .notification;
+    position: fixed;
+    background-color: #ff9e07;
+    color: $white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
+  }
+}

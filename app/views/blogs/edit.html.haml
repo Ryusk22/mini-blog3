@@ -1,0 +1,26 @@
+%nav
+  .nav-wrapper
+    %a.brand-logo.center{:href => "#"} Blog
+    %ul#nav-mobile.left
+      - if user_signed_in?
+        %li
+          = link_to "SignOut", destroy_user_session_path, method: :delete
+        %li
+          = link_to "TopPage", blogs_path, method: :get
+      - else
+        %li
+          = link_to "SignUp", new_user_registration_path, method: :get
+        %li
+          = link_to "SignIn", new_user_session_path, method: :get
+
+.new-content
+  = form_for @blog, :class=>"col.s6" do |f|
+    .input-field.col.s6
+      = f.label :title
+      = f.text_field :title
+    .input-field.col.s12
+      = f.label :content
+      = f.text_field :content
+    .actions
+      %button.btn Edit
+

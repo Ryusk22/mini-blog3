@@ -1,0 +1,33 @@
+%nav
+  .nav-wrapper
+    %a.brand-logo.center{:href => "#"} Blog
+    %ul#nav-mobile.left
+      - if user_signed_in?
+        %li
+          = link_to "SignOut", destroy_user_session_path, method: :delete
+        %li
+          = link_to "TopPage", blogs_path, method: :get
+        %li
+          = link_to "New", new_blog_path
+      - else
+        %li
+          = link_to "SignUp", new_user_registration_path, method: :get
+        %li
+          = link_to "SignIn", new_user_session_path, method: :get
+        %li
+          = link_to "TopPage", blogs_path, method: :get
+
+.show-content
+  .row
+    .col.s12.m6
+      .card.card.grey.darken-1
+        .card-content.white-text#show-content__card
+          %span.card-title
+            = @blog.title
+          %p
+            = @blog.content
+        .card-action
+          - if user_signed_in? && @blog.user_id == current_user.id
+            %a.waves-effect.waves-light.btn-small{href: "#{@blog.id}/edit"}  Edit
+            / %a.waves-effect.waves-light.btn-small{href: "#{@blog.id}", method: :delete}  Destroy
+            = link_to 'Destroy', "#{@blog.id}", data: { confirm: 'Are you sure?', method: 'delete'}
